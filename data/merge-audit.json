@@ -1,0 +1,424 @@
+{
+  "summary": {
+    "publicRows": 4447,
+    "metroRows": 284,
+    "count": 4665,
+    "categories": {
+      "subway": 572,
+      "public": 4093
+    },
+    "merged": 39,
+    "exactDuplicates": 27,
+    "retrieved": "2026-09-06"
+  },
+  "matches": [
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-283471",
+      "target": "seoul-283404"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-283473",
+      "target": "seoul-283403"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-282873",
+      "target": "seoul-282872"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-284447",
+      "target": "seoul-283539"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-284122",
+      "target": "seoul-284121"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-284258",
+      "target": "seoul-284257"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-284259",
+      "target": "seoul-284257"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-284260",
+      "target": "seoul-284257"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-284264",
+      "target": "seoul-284263"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-284869",
+      "target": "seoul-283638"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-280686",
+      "target": "seoul-280677"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-282824",
+      "target": "seoul-282732"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281877",
+      "target": "seoul-281876"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-280894",
+      "target": "seoul-280893"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-280912",
+      "target": "seoul-280911"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-280913",
+      "target": "seoul-280911"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281966",
+      "target": "seoul-281965"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281968",
+      "target": "seoul-281967"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281969",
+      "target": "seoul-281967"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281468",
+      "target": "seoul-281461"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-282517",
+      "target": "seoul-282288"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281043",
+      "target": "seoul-281042"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281044",
+      "target": "seoul-281042"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281062",
+      "target": "seoul-281015"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281063",
+      "target": "seoul-281015"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-281163",
+      "target": "seoul-281218"
+    },
+    {
+      "type": "exact_duplicate",
+      "id": "seoul-282197",
+      "target": "seoul-281730"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-1",
+      "public": "seoul-283745",
+      "distanceMeters": 31,
+      "name": "서울역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-2",
+      "public": "seoul-283850",
+      "distanceMeters": 30,
+      "name": "시청역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-13",
+      "public": "seoul-281748",
+      "distanceMeters": 0,
+      "name": "신설동역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-28",
+      "public": "seoul-281879",
+      "distanceMeters": 3,
+      "name": "건대입구역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-29",
+      "public": "seoul-281878",
+      "distanceMeters": 2,
+      "name": "구의역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-30",
+      "public": "seoul-281525",
+      "distanceMeters": 9,
+      "name": "강변역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-31",
+      "public": "seoul-284115",
+      "distanceMeters": 3,
+      "name": "잠실나루역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-32",
+      "public": "seoul-284125",
+      "distanceMeters": 0,
+      "name": "잠실역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-33",
+      "public": "seoul-284123",
+      "distanceMeters": 8,
+      "name": "잠실새내역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-39",
+      "public": "seoul-280742",
+      "distanceMeters": 28,
+      "name": "강남역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-40",
+      "public": "seoul-281142",
+      "distanceMeters": 0,
+      "name": "교대역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-41",
+      "public": "seoul-281141",
+      "distanceMeters": 8,
+      "name": "서초역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-45",
+      "public": "seoul-282730",
+      "distanceMeters": 11,
+      "name": "낙성대역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-48",
+      "public": "seoul-282727",
+      "distanceMeters": 8,
+      "name": "신림역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-57",
+      "public": "seoul-282447",
+      "distanceMeters": 28,
+      "name": "합정역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-63",
+      "public": "seoul-281749",
+      "distanceMeters": 0,
+      "name": "신설동역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-80",
+      "public": "seoul-281278",
+      "distanceMeters": 16,
+      "name": "독립문역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-83",
+      "public": "seoul-284167",
+      "distanceMeters": 45,
+      "name": "종로3가역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-85",
+      "public": "seoul-284569",
+      "distanceMeters": 13,
+      "name": "동대입구역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-87",
+      "public": "seoul-281165",
+      "distanceMeters": 17,
+      "name": "금호역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-93",
+      "public": "seoul-281138",
+      "distanceMeters": 0,
+      "name": "교대역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-101",
+      "public": "seoul-280734",
+      "distanceMeters": 30,
+      "name": "일원역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-102",
+      "public": "seoul-280733",
+      "distanceMeters": 52,
+      "name": "수서역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-133",
+      "public": "seoul-282344",
+      "distanceMeters": 13,
+      "name": "동작역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-134",
+      "public": "seoul-282345",
+      "distanceMeters": 84,
+      "name": "총신대입구역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-145",
+      "public": "seoul-281812",
+      "distanceMeters": 54,
+      "name": "발산역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-155",
+      "public": "seoul-283803",
+      "distanceMeters": 37,
+      "name": "신길역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-166",
+      "public": "seoul-284564",
+      "distanceMeters": 66,
+      "name": "동대문역사문화공원역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-176",
+      "public": "seoul-280969",
+      "distanceMeters": 0,
+      "name": "천호역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-193",
+      "public": "seoul-284120",
+      "distanceMeters": 0,
+      "name": "오금역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-214",
+      "public": "seoul-281660",
+      "distanceMeters": 0,
+      "name": "광흥창역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-223",
+      "public": "seoul-283870",
+      "distanceMeters": 97,
+      "name": "약수역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-284",
+      "public": "seoul-280971",
+      "distanceMeters": 27,
+      "name": "암사역사공원역역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-288",
+      "public": "seoul-284124",
+      "distanceMeters": 0,
+      "name": "잠실역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-289",
+      "public": "seoul-284114",
+      "distanceMeters": 83,
+      "name": "석촌역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-290",
+      "public": "seoul-284019",
+      "distanceMeters": 3,
+      "name": "송파역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-291",
+      "public": "seoul-284018",
+      "distanceMeters": 0,
+      "name": "가락시장역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-294",
+      "public": "seoul-284126",
+      "distanceMeters": 0,
+      "name": "장지역"
+    },
+    {
+      "type": "metro_enrichment",
+      "metro": "metro-295",
+      "public": "seoul-284127",
+      "distanceMeters": 35,
+      "name": "복정역"
+    }
+  ]
+}
