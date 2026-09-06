@@ -1,19 +1,5 @@
 # 급할 때 화장실
-
-## GitHub Pages 배포
-
-이 폴더는 GitHub Pages용 정적 사이트로 설정되어 있습니다.
-
-1. GitHub에서 새 저장소를 만듭니다. 저장소 이름은 원하는 이름으로 정해도 됩니다.
-2. 이 폴더 전체를 새 저장소에 올립니다.
-3. GitHub 저장소의 **Settings → Pages → Build and deployment**에서 **GitHub Actions**를 선택합니다.
-4. `main` 브랜치에 코드를 올리면 Actions가 자동으로 빌드하고 Pages에 게시합니다.
-
-처음 공개한 뒤 GitHub의 Actions 화면에서 **Deploy GitHub Pages**가 완료됐는지 확인하세요.
-
-배포 주소는 보통 `https://사용자명.github.io/저장소명/` 형식입니다. 저장소를 `사용자명.github.io`로 만들면 루트 주소로 사용할 수 있습니다.
-서울 공공·개방 화장실과 지하철 화장실을 함께 검색하고 지도 앱으로 길찾기하는 웹앱입니다.
-
+이 사이트는 급똥이 마려울 때 가까운 화장실을 찾아주는 맵입니다. 
 ## 데이터
 - 서울시 공중화장실 위치정보 OA-22586: https://data.seoul.go.kr/dataList/OA-22586/S/1/datasetView.do
 - 서울교통공사 역사장애인화장실정보: https://www.data.go.kr/data/15118705/fileData.do (2026-02-12 기준)
