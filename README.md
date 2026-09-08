@@ -1,4 +1,4 @@
-# 급할 때 화장실
+# 급똥맵
 이 사이트는 급똥이 마려울 때 가까운 화장실을 찾아주는 맵입니다. 
 ## 데이터
 - 서울시 공중화장실 위치정보 OA-22586: https://data.seoul.go.kr/dataList/OA-22586/S/1/datasetView.do

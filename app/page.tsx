@@ -330,7 +330,7 @@ export default function Home() {
             <Toilet size={24} />
           </span>
           <span>
-            급할 때 화장실<span className="brand-sub">SEOUL RESTROOM MAP</span>
+            급똥맵<span className="brand-sub">SEOUL RESTROOM MAP</span>
           </span>
         </a>
         <span className="edition">

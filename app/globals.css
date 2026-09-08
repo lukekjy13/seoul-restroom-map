@@ -138,5 +138,37 @@ body {
 @media(min-width:1450px){.finder{width:440px}.finder-top{padding:32px}.result{padding:23px 30px}}
 @media(max-width:760px){.app-shell{height:auto;min-height:100dvh}.topbar{height:72px;padding:0 18px}.brand{font-size:18px}.brand-mark{width:38px;height:38px}.edition{font-size:12px}.workspace{display:flex;flex-direction:column}.finder{width:100%;border-right:0;display:contents}.finder-top{padding:22px 20px 14px;background:white;order:0}.finder-top>p{margin-bottom:15px}h1{font-size:27px}.filter-row{gap:6px;margin-top:14px}.filter{font-size:13px;padding:8px}.map-section{order:1;flex:none;height:560px;min-height:560px}.map-badge{top:14px;left:14px;font-size:12px}.detail-card{bottom:20px;left:14px;width:calc(100% - 64px);padding:18px;border-radius:13px}.detail-card h2{font-size:23px}.detail-facts{gap:9px}.detail-facts span{font-size:12px}.results-head{order:2;padding:18px 20px;background:white}.results{order:3;overflow:visible;background:white;max-height:600px;overflow-y:auto}.source{order:4;background:white}.result{padding:18px 20px}.detail-location{font-size:15px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* On phones, keep the map as the first, largest surface. The selected-place
+   card becomes a compact bottom sheet so it doesn't obscure the map. */
+@media(max-width:760px){
+  .topbar{height:64px;padding:0 16px}
+  .brand{font-size:19px}
+  .brand-sub{display:none}
+  .edition{font-size:11px}
+  .workspace{display:flex;flex-direction:column}
+  .map-section{order:0;height:55svh!important;min-height:400px!important;max-height:520px}
+  .finder-top{order:1;padding:18px 16px 14px!important}
+  .finder-top .eyebrow,.finder-top h1,.finder-top>p{display:none}
+  .searchbox{height:48px}
+  .locate{height:44px}
+  .filter-row{margin:12px 0 8px;gap:5px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:3px}
+  .filter{padding:7px 9px;font-size:12px;flex-shrink:0}
+  .finder-top p.status{font-size:11px}
+  .results-head{order:2;padding:14px 16px}
+  .results{order:3;max-height:52svh}
+  .source{order:4;padding:13px 16px}
+  .map-badge{top:12px;left:12px;padding:8px 12px}
+  .detail-card{left:10px;bottom:10px;width:calc(100% - 46px)!important;max-height:152px;overflow:hidden;padding:13px 14px;border-radius:14px}
+  .detail-kicker{font-size:11px}
+  .line-chip{font-size:10px;padding:3px 6px}
+  .detail-card h2{font-size:17px;line-height:1.35;margin:6px 0 9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .detail-card h2 span{font-size:14px;padding-top:2px}
+  .detail-location,.detail-facts,.detail-card .address,.source-detail,.detail-card .note{display:none!important}
+  .route-choices{margin-top:0;gap:6px}
+  .route-button{min-height:39px;font-size:12px!important}
+  .route-button svg{width:14px;height:14px}
+  .result{padding:16px}
+}
 .map-pin b{transform:rotate(45deg)}
 .route-choices{display:grid;grid-template-columns:1fr 1.15fr .8fr;gap:7px;margin-top:16px}.route-button{display:flex;align-items:center;justify-content:center;gap:5px;border:1px solid #d3e1dc;border-radius:8px;min-height:45px;font-size:14px;font-weight:700;background:white;color:#233d32}.route-button.kakao{background:#ffed71;border-color:#ffed71;color:#3e3417}.route-button.naver{background:#e8f8ed;border-color:#caead4;color:#136b35}.route-button.tmap{background:#f0effa;border-color:#dedcef;color:#4f3d85}.source-detail{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px;color:#6d8078;margin-top:13px}.source-detail a{display:flex;gap:4px;align-items:center;color:#007963}.detail-facts span{line-height:1.6;max-width:100%;overflow-wrap:anywhere}.detail-card{max-height:calc(100% - 90px);overflow-y:auto}.detail-card h2{overflow-wrap:anywhere}.tags .unknown{color:#7d6747}.load-more{width:100%;padding:18px;border:0;background:#f0f7f4;color:#007963;font-size:14px;font-weight:700}.route-dialog{padding:26px;gap:18px}.route-dialog [data-slot=dialog-title]{font-size:20px;font-weight:750;line-height:1.5}.route-dialog [data-slot=dialog-description]{font-size:15px;line-height:1.65}.web-fallback{color:#08763a;text-decoration:underline;font-size:14px;text-underline-offset:3px}.app-help{font-size:14px;color:#64756c;line-height:1.7}.store-links{display:flex;gap:20px;font-size:14px;text-decoration:underline}.result h3 span{display:inline-block}.result-title>b{flex-shrink:0}.source-detail span{line-height:1.6}@media(max-width:760px){.map-section{height:620px;min-height:620px}.route-button{font-size:13px}.detail-card{width:calc(100% - 58px)}.detail-facts span{font-size:13px}.finder-top{padding-bottom:12px}}
