@@ -14,6 +14,10 @@ import {
   Toilet,
   Info,
   Phone,
+  X,
+  SlidersHorizontal,
+  List,
+  RefreshCw,
 } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Empty, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
@@ -47,6 +51,10 @@ export default function Home() {
     [baby, setBaby] = useState(false),
     [child, setChild] = useState(false),
     [selected, setSelected] = useState<string | null>(null),
+    [detailVisible, setDetailVisible] = useState(true),
+    [mobilePanel, setMobilePanel] = useState<
+      'search' | 'filters' | 'list' | null
+    >(null),
     [center, setCenter] = useState(origin),
     [located, setLocated] = useState(false),
     [message, setMessage] = useState(''),
@@ -97,7 +105,8 @@ export default function Home() {
     () => setLimit(60),
     [query, outside, baby, child, accessible, openOnly],
   );
-  const active = results.find((p) => p.id === selected) ?? results[0];
+  const activeCandidate = results.find((p) => p.id === selected) ?? results[0];
+  const active = detailVisible ? activeCandidate : undefined;
   const links = active ? routeLinks(active, appUrl) : null;
   const currentResults = useRef(results);
   currentResults.current = results;
@@ -208,7 +217,11 @@ export default function Home() {
           (p) => p.id === (input as { id: string }).id,
         );
         if (!p) throw new Error('현재 검색 결과에 없는 화장실입니다.');
-        flushSync(() => setSelected(p.id));
+        flushSync(() => {
+          setSelected(p.id);
+          setDetailVisible(true);
+          setMobilePanel(null);
+        });
         return {
           id: p.id,
           name: p.name,
@@ -275,7 +288,13 @@ export default function Home() {
             fillColor: color,
             fillOpacity: 0.9,
           });
-      marker.on('click', () => setSelected(p.id)).addTo(layer.current);
+      marker
+        .on('click', () => {
+          setSelected(p.id);
+          setDetailVisible(true);
+          setMobilePanel(null);
+        })
+        .addTo(layer.current);
     });
     if (located)
       L.current
@@ -305,6 +324,8 @@ export default function Home() {
         setCenter(c);
         setLocated(true);
         setSelected(null);
+        setDetailVisible(false);
+        setMobilePanel(null);
         setMessage('현재 위치 기준으로 가까운 순서예요.');
       },
       () =>
@@ -322,6 +343,23 @@ export default function Home() {
     setChild(false);
     setAccessible(false);
   }
+  function selectRestroom(id: string) {
+    setSelected(id);
+    setDetailVisible(true);
+    setMobilePanel(null);
+  }
+  function searchMapCenter() {
+    if (!map.current) return;
+    const next = map.current.getCenter();
+    setCenter({ lat: next.lat, lng: next.lng });
+    setSelected(null);
+    setDetailVisible(false);
+    setMobilePanel(null);
+    setMessage('현재 지도 중심에서 가까운 순서예요.');
+  }
+  const activeFilterCount = [openOnly, outside, accessible, baby, child].filter(
+    Boolean,
+  ).length;
   return (
     <main className="app-shell">
       <header className="topbar">
@@ -405,7 +443,7 @@ export default function Home() {
                 <button
                   key={p.id}
                   className={'result ' + (p.id === active?.id ? 'active' : '')}
-                  onClick={() => setSelected(p.id)}
+                  onClick={() => selectRestroom(p.id)}
                 >
                   <div className="result-title">
                     <span className="station-icon">
@@ -475,6 +513,159 @@ export default function Home() {
             <span className="live-dot" />
             서울 화장실 통합 지도
           </div>
+          <nav className="mobile-toolbar" aria-label="지도 기능">
+            <button
+              className={mobilePanel === 'search' ? 'active' : ''}
+              aria-label="검색"
+              aria-pressed={mobilePanel === 'search'}
+              onClick={() =>
+                setMobilePanel((v) => (v === 'search' ? null : 'search'))
+              }
+            >
+              <Search size={20} />
+              <span>검색</span>
+            </button>
+            <button
+              className={mobilePanel === 'filters' ? 'active' : ''}
+              aria-label="필터"
+              aria-pressed={mobilePanel === 'filters'}
+              onClick={() =>
+                setMobilePanel((v) => (v === 'filters' ? null : 'filters'))
+              }
+            >
+              <SlidersHorizontal size={20} />
+              <span>필터</span>
+              {activeFilterCount > 0 && <b>{activeFilterCount}</b>}
+            </button>
+            <button
+              className={mobilePanel === 'list' ? 'active' : ''}
+              aria-label="화장실 목록"
+              aria-pressed={mobilePanel === 'list'}
+              onClick={() =>
+                setMobilePanel((v) => (v === 'list' ? null : 'list'))
+              }
+            >
+              <List size={20} />
+              <span>목록</span>
+            </button>
+            <button aria-label="내 위치에서 찾기" onClick={locate}>
+              <LocateFixed size={20} />
+              <span>내 위치</span>
+            </button>
+          </nav>
+          <button className="search-map-area" onClick={searchMapCenter}>
+            <RefreshCw size={15} />이 지역에서 찾기
+          </button>
+          {mobilePanel && (
+            <section className={'mobile-panel mobile-panel-' + mobilePanel}>
+              <header>
+                <strong>
+                  {mobilePanel === 'search'
+                    ? '장소 검색'
+                    : mobilePanel === 'filters'
+                      ? '조건 선택'
+                      : `가까운 화장실 ${results.length}곳`}
+                </strong>
+                <button
+                  className="panel-close"
+                  aria-label="패널 닫기"
+                  onClick={() => setMobilePanel(null)}
+                >
+                  <X size={20} />
+                </button>
+              </header>
+              {mobilePanel === 'search' && (
+                <div className="mobile-search-content">
+                  <div className="searchbox">
+                    <Search size={20} />
+                    <input
+                      aria-label="장소·역명·주소 검색"
+                      placeholder="역명·장소·주소를 입력하세요"
+                      value={query}
+                      onChange={(e) => {
+                        setQuery(e.target.value);
+                        setSelected(null);
+                        setDetailVisible(false);
+                      }}
+                    />
+                    {query && (
+                      <button
+                        onClick={() => setQuery('')}
+                        aria-label="검색어 지우기"
+                      >
+                        <X size={18} />
+                      </button>
+                    )}
+                  </div>
+                  {query && (
+                    <div className="mobile-quick-results">
+                      {results.slice(0, 6).map((p) => (
+                        <button key={p.id} onClick={() => selectRestroom(p.id)}>
+                          <span>{p.name}</span>
+                          <b>{meters(p.distance)}</b>
+                        </button>
+                      ))}
+                      {results.length === 0 && <p>검색 결과가 없어요.</p>}
+                    </div>
+                  )}
+                </div>
+              )}
+              {mobilePanel === 'filters' && (
+                <div className="mobile-filter-content">
+                  {[
+                    { label: '현재 개방', v: openOnly, f: setOpenOnly },
+                    { label: '개찰구 밖', v: outside, f: setOutside },
+                    { label: '장애인용', v: accessible, f: setAccessible },
+                    { label: '기저귀교환대', v: baby, f: setBaby },
+                    { label: '유아용 변기', v: child, f: setChild },
+                  ].map((item) => (
+                    <button
+                      key={item.label}
+                      className={item.v ? 'active' : ''}
+                      aria-pressed={item.v}
+                      onClick={() => item.f(!item.v)}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                  <div className="mobile-filter-footer">
+                    <button className="filter-reset" onClick={clear}>
+                      초기화
+                    </button>
+                    <button
+                      className="filter-apply"
+                      onClick={() => setMobilePanel(null)}
+                    >
+                      {results.length}곳 지도에서 보기
+                    </button>
+                  </div>
+                </div>
+              )}
+              {mobilePanel === 'list' && (
+                <div className="mobile-list-content">
+                  {results.slice(0, 40).map((p) => (
+                    <button key={p.id} onClick={() => selectRestroom(p.id)}>
+                      <span className="station-icon">
+                        {p.category === 'subway' ? (
+                          <TrainFront size={18} />
+                        ) : (
+                          <Toilet size={18} />
+                        )}
+                      </span>
+                      <span className="mobile-list-copy">
+                        <strong>{p.name}</strong>
+                        <small>{p.detail || p.address}</small>
+                      </span>
+                      <b>{meters(p.distance)}</b>
+                    </button>
+                  ))}
+                  {results.length === 0 && (
+                    <p className="mobile-empty">조건에 맞는 화장실이 없어요.</p>
+                  )}
+                </div>
+              )}
+            </section>
+          )}
           {mapError && (
             <div className="map-warning" role="status">
               지도를 불러오지 못했어요. 목록에서 위치를 확인하거나 길찾기를
@@ -490,8 +681,17 @@ export default function Home() {
                     ? '지하철 화장실'
                     : '공공·개방 화장실'}
                 </span>
-                <span className="line-chip">
-                  {active.line || active.facility}
+                <span className="detail-tools">
+                  <span className="line-chip">
+                    {active.line || active.facility}
+                  </span>
+                  <button
+                    className="detail-close"
+                    aria-label="화장실 정보 닫기"
+                    onClick={() => setDetailVisible(false)}
+                  >
+                    <X size={18} />
+                  </button>
                 </span>
               </div>
               <h2>
